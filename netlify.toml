@@ -1,0 +1,27 @@
+[build]
+  # Build command (adjust if needed based on your build setup)
+  command = "npm run build"
+  
+  # Directory with the static files to deploy
+  publish = "dist"
+  
+  # Directory with the serverless functions
+  functions = "netlify/functions"
+
+[functions]
+  # Increase timeout for functions (default is 10s, max is 26s for free tier)
+  included_files = ["netlify/functions/**"]
+
+# Redirect rules (optional - for SPA routing)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# CORS headers (optional - additional security)
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
