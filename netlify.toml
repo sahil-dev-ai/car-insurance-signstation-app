@@ -3,7 +3,7 @@
   command = "npm run build"
   
   # Directory with the static files to deploy
-  publish = "dist"
+  publish = "build"
   
   # Directory with the serverless functions
   functions = "netlify/functions"
